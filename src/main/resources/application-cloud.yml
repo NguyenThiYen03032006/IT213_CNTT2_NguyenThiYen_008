@@ -1,0 +1,18 @@
+spring:
+  ai:
+    model:
+      chat: openai
+      embedding: openai
+    openai:
+      base-url: ${OPENAI_BASE_URL:${OPEN_ROUTER_BASED_URL:https://openrouter.ai/api/v1}}
+      api-key: ${OPENAI_API_KEY:${OPEN_ROUTER_API_KEY:}}
+      chat:
+        options:
+          model: ${OPENAI_CHAT_MODEL:${OPEN_ROUTER_MODEL:gpt-4o-mini}}
+      embedding:
+        options:
+          model: ${OPENAI_EMBEDDING_MODEL:text-embedding-3-small}
+          encoding-format: float
+    vectorstore:
+      pgvector:
+        dimensions: ${EMBEDDING_DIMENSIONS:1536}
